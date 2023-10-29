@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:38:20 by pibouill          #+#    #+#             */
-/*   Updated: 2023/10/29 16:45:09 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/10/29 16:59:49 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,18 @@
 
 int	ft_printf(const char *format, ...)
 {
-q
+	va_list	ap;
+	int		return_len;
+
+	va_start(ap, format);
+
+
+	va_end(ap);
+	return (return_len);
+}
+
+int	main()
+{
+	ft_printf("this is a number: %d", 42);
+	printf("this is a number: %d", 42);
 }
