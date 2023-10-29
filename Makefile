@@ -6,7 +6,7 @@
 #    By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/29 13:49:56 by pibouill          #+#    #+#              #
-#    Updated: 2023/10/29 14:21:10 by pibouill         ###   ########.fr        #
+#    Updated: 2023/10/29 19:18:17 by pibouill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,7 +104,7 @@ On_IWhite= \033[0;107m   # White
 ################################################################################
 ## SOURCES
 
-SRC_FILES 	=	$(shell find ./src -iname "*.c")
+SRCS_FILES	= $(shell find ./src -type f -exec basename {} \; | rev | cut -d. -f2- | rev)
 
 OBJ 		=	$(addprefix $(BIN_DIR)/, $(addsuffix .o, $(SRC_FILES)))
 SRC 		=	$(addprefix $(BIN_DIR)/, $(addsuffix .c, $(SRC_FILES)))
