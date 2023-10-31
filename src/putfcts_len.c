@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 18:44:37 by pibouill          #+#    #+#             */
-/*   Updated: 2023/10/29 19:55:48 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/10/31 16:14:11 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,36 @@ int	putstr_len(char *str)
 	return (count);
 }
 
-int	puthex_len(int x)
+int	putptr_len(void *ptr)
 {
+	unsigned long	ptr_value;
+	int				count;
 
+	count = 0;
+	ptr_value = (unsigned long)ptr;
+	count += write(1, "0x", 2);
+	count += puthex_len(ptr_value, 0);
+	return (count);
+}
+
+int	puthex_len(unsigned long hex, int is_uppercase)
+{
+	char	*symbols;
+	int		count;
+
+	count = 0;
+	if (is_uppercase == 1)
+		symbols = "0123456789ABCDEF";
+	else
+		symbols = "0123456789abcdef";
+	if (hex >= 0 && hex < 16)
+		return (putchar_len(symbols[hex]));
+	else
+	{
+		count += puthex_len(hex / 16, is_uppercase);
+		count += puthex_len(hex % 16, is_uppercase);
+		return (count);
+	}
 }
 
 int	putnbr_len(long n, int base)
