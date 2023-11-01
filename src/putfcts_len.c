@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 18:44:37 by pibouill          #+#    #+#             */
-/*   Updated: 2023/10/31 16:14:11 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/01 13:39:13 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,49 +35,56 @@ int	putptr_len(void *ptr)
 	unsigned long	ptr_value;
 	int				count;
 
+	if (ptr == NULL)
+		return (putstr_len("(nil)"));
 	count = 0;
 	ptr_value = (unsigned long)ptr;
 	count += write(1, "0x", 2);
-	count += puthex_len(ptr_value, 0);
+	count += put_nbr_u_hex_len(ptr_value, 16, 0);
 	return (count);
 }
 
-int	puthex_len(unsigned long hex, int is_uppercase)
+// int	puthex_len(unsigned long hex, int is_uppercase)
+// {
+// 	char	*symbols;
+// 	int		count;
+
+// 	count = 0;
+// 	if (is_uppercase == 1)
+// 		symbols = "0123456789ABCDEF";
+// 	else
+// 		symbols = "0123456789abcdef";
+// 	if (hex >= 0 && hex < 16)
+// 		return (putchar_len(symbols[hex]));
+// 	else
+// 	{
+// 		count += puthex_len(hex / 16, is_uppercase);
+// 		count += puthex_len(hex % 16, is_uppercase);
+// 		return (count);
+// 	}
+// }
+
+int	put_nbr_u_hex_len(long n, int base, int is_uppercase)
 {
-	char	*symbols;
 	int		count;
+	char	*symbols;
 
 	count = 0;
 	if (is_uppercase == 1)
 		symbols = "0123456789ABCDEF";
 	else
 		symbols = "0123456789abcdef";
-	if (hex >= 0 && hex < 16)
-		return (putchar_len(symbols[hex]));
-	else
-	{
-		count += puthex_len(hex / 16, is_uppercase);
-		count += puthex_len(hex % 16, is_uppercase);
-		return (count);
-	}
-}
-
-int	putnbr_len(long n, int base)
-{
-	int		count;
-	char	*symbols;
-
-	symbols = "0123456789abcdef";
 	if (n < 0)
 	{
 		write(1, "-", 1);
-		return (putnbr_len(-n, base) + 1);
+		return (put_nbr_u_hex_len(-n, base, is_uppercase) + 1);
 	}
 	else if (n < base)
 		return (putchar_len(symbols[n]));
 	else
 	{
-		count = putnbr_len(n / base, base);
-		return (count + putnbr_len(n % base, base));
+		count += put_nbr_u_hex_len((n / base), base, is_uppercase);
+		count += put_nbr_u_hex_len((n % base), base, is_uppercase);
+		return (count);
 	}
 }

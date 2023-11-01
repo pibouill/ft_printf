@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 11:02:47 by pibouill          #+#    #+#             */
-/*   Updated: 2023/10/29 16:10:41 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/01 12:43:36 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	ft_bzero(void *s, size_t n);
 
 //	STDLIB
 int		ft_atoi(const char *nptr);
-void	*ft_calloc(size_t nmemb, size_t size);
 
 //	PUT
 void	ft_putchar_fd(char c, int fd);

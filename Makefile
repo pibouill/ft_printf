@@ -6,7 +6,7 @@
 #    By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/29 13:49:56 by pibouill          #+#    #+#              #
-#    Updated: 2023/10/31 13:28:35 by pibouill         ###   ########.fr        #
+#    Updated: 2023/11/01 12:49:51by pibouill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -140,6 +140,10 @@ fclean: 	clean
 
 re: 		fclean all
 		@echo "$(GREEN)Cleaned all and rebuilt $(NAME) and $(LIB_DIR)$(END_COLOR)"
+
+test:
+	@cc $(CFLAGS) $(LIB_INC) $(INC) test.c src/*.c
+	@echo "$(Purple)< Test compiled and ready to run a.out>$(END_COLOR)"
 
 ################################################################################
 ## PHONY
