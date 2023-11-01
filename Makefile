@@ -75,7 +75,7 @@ re: 		fclean all
 		@echo "$(GREEN)Cleaned all and rebuilt $(NAME) $(END_COLOR)"
 
 test:
-	@cc $(CFLAGS) $(LIB_INC) $(INC) test.c src/*.c
+	@cc  $(CFLAGS) $(LIB_INC) $(INC) test.c src/*.c
 	@echo "$(CYAN)< Test compiled and ready to run a.out>$(END_COLOR)"
 
 ################################################################################

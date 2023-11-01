@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 13:52:47 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/01 15:05:57 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/01 19:49:40 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdio.h>
 # include <unistd.h>
@@ -23,7 +23,7 @@
 int	ft_printf(const char *format, ...);
 int	putchar_len(int c);
 int	putstr_len(char *str);
-int	putptr_len(void *ptr);
+int	putptr_len(unsigned long long ptr);
 int	put_nbr_u_hex_len(long n, int base, int is_uppercase);
 
 #endif
