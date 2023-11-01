@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 18:44:37 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/01 13:39:13 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/01 13:10:36by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	putstr_len(char *str)
 	int	count;
 
 	count = 0;
+	if (str == NULL)
+		return (putstr_len("(null)"));
 	while (*str)
 	{
 		count += putchar_len((int)*str);

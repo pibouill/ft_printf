@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:38:20 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/01 13:12:51 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/01 14:32:31 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	handle_format(char specifier, va_list arg)
 	else if (specifier == 'x')
 		count += put_nbr_u_hex_len(va_arg(arg, unsigned int), 16, 0);
 	else if (specifier == 'X')
-		count += put_nbr_u_hex_len(va_arg(arg, unsigned int), 16, 0);
+		count += put_nbr_u_hex_len(va_arg(arg, unsigned int), 16, 1);
 	else if (specifier == '%')
 		count += write(1, "%%", 1);
 	else
