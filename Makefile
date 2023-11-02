@@ -64,12 +64,10 @@ $(BIN_DIR):
 		@echo "$(YELLOW)Object files created and moved to $(BIN_DIR)/ directory.$(END_COLOR)"
 
 clean:
-		@echo "\t🧹 clean"
 		@rm -rf $(BIN_DIR)
 		@echo "$(PURPLE)Object files and bin/ cleaned.$(END_COLOR)"
 
 fclean: 	clean
-		@echo "\t💣 fclean"
 		@rm -f $(NAME)
 		@echo "$(YELLOW)$(NAME) file cleaned.$(END_COLOR)"
 
