@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/29 16:38:20 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/01 19:04:00pibouill         ###   ########.fr       */
+/*   Created: 2023/11/02 11:42:15 by pibouill          #+#    #+#             */
+/*   Updated: 2023/11/02 11:42:18 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// cspdiuxX%
 
 #include "ft_printf.h"
 
@@ -24,7 +22,7 @@ int	handle_format(char specifier, va_list arg)
 	else if (specifier == 's')
 		count += putstr_len(va_arg(arg, char *));
 	else if (specifier == 'p')
-		count += putptr_len((unsigned long long)va_arg(arg, void *));
+		count += putptr_len((unsigned long long)va_arg(arg, void *), 0);
 	else if (specifier == 'd' || specifier == 'i')
 		count += put_nbr_u_hex_len(va_arg(arg, int), 10, 0);
 	else if (specifier == 'u')

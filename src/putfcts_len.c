@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 15:08:25 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/01 16:48:00y pibouill         ###   ########.fr       */
+/*   Created: 2023/11/02 11:41:33 by pibouill          #+#    #+#             */
+/*   Updated: 2023/11/02 11:41:34 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	putstr_len(char *str)
 	return (count);
 }
 
-int	putptr_len(unsigned long long ptr)
+int	putptr_len(unsigned long long ptr, int ptr_prefix)
 {
 	int		count;
 	char	*symbols;
@@ -43,9 +43,14 @@ int	putptr_len(unsigned long long ptr)
 		return (putstr_len("(nil)"));
 	else
 	{
+		if (ptr_prefix == 0)
+		{
+			count += write(1, "0x", 2);
+			ptr_prefix = 1;
+		}
 		if (ptr >= 16)
 		{
-			count += putptr_len(ptr / 16);
+			count += putptr_len(ptr / 16, ptr_prefix);
 			ptr %= 16;
 		}
 		if (ptr < 16)
