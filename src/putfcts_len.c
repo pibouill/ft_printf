@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:41:33 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/02 11:41:34 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/02 16:54:58 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	putptr_len(unsigned long long ptr, int ptr_prefix)
 	symbols = "0123456789abcdef";
 	count = 0;
 	if (ptr == 0)
-		return (putstr_len("(nil)"));
+		return (putstr_len(PTR_NULL));
 	else
 	{
 		if (ptr_prefix == 0)
