@@ -53,6 +53,13 @@ all:	$(NAME)
 
 $(NAME):	$(OBJ)
 		@$(AR) $(NAME) $(OBJ)
+		@echo "$(CYAN)       :::::::::: :::::::::::            :::::::::  :::::::::  ::::::::::: ::::    ::: ::::::::::: ::::::::::"
+		@echo "$(YELLOW)        :+:            :+:                :+:    :+: :+:    :+:     :+:     :+:+:   :+:     :+:     :+:"
+		@echo "$(PURPLE)       +:+            +:+                +:+    +:+ +:+    +:+     +:+     :+:+:+  +:+     +:+     +:+"
+		@echo "$(CYAN)    :#::+::#       +#+                +#++:++#+  +#++:++#:      +#+     +#+ +:+ +#+     +#+     :#::+::#"
+		@echo "$(YELLOW)     +#+            +#+                +#+        +#+    +#+     +#+     +#+  +#+#+#     +#+     +#+"
+		@echo "$(PURPLE)    #+#            #+#                #+#        #+#    #+#     #+#     #+#   #+#+#     #+#     #+#"
+		@echo "$(CYAN) ###            ###     ########## ###        ###    ### ########### ###    ####     ###     ###"
 		@echo "$(GREEN)$(NAME) Compiled.$(END_COLOR)"
 
 $(BIN_DIR)/%.o: $(SRC_DIR)/%.c Makefile | $(BIN_DIR)
@@ -82,7 +89,10 @@ noflags:
 	@cc $(LIB_INC) $(INC) test.c src/*.c
 	@echo "$(CYAN)< Test compiled without flags and ready to run a.out>$(END_COLOR)"
 
+header:
+	clear
+	@echo "$$HEADER"
 ################################################################################
 ## PHONY
 
-.PHONY:		all clean fclean re test
+.PHONY:		all clean fclean re test noflags
