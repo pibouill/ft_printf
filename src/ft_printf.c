@@ -6,7 +6,7 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:42:15 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/02 12:46:24 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/03 13:44:31 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,24 @@
 
 int	handle_format(char specifier, va_list arg)
 {
-	int	count;
-
-	count = 0;
 	if (specifier == 'c')
-		count += putchar_len(va_arg(arg, int));
+		return (putchar_len(va_arg(arg, int)));
 	else if (specifier == 's')
-		count += putstr_len(va_arg(arg, char *));
+		return (putstr_len(va_arg(arg, char *)));
 	else if (specifier == 'p')
-		count += putptr_len((unsigned long long)va_arg(arg, void *), 0);
+		return (putptr_len((unsigned long long)va_arg(arg, void *), 0));
 	else if (specifier == 'd' || specifier == 'i')
-		count += put_nbr_u_hex_len(va_arg(arg, int), 10, 0);
+		return (put_nbr_u_hex_len(va_arg(arg, int), 10, 0));
 	else if (specifier == 'u')
-		count += put_nbr_u_hex_len(va_arg(arg, unsigned int), 10, 0);
+		return (put_nbr_u_hex_len(va_arg(arg, unsigned int), 10, 0));
 	else if (specifier == 'x')
-		count += put_nbr_u_hex_len(va_arg(arg, unsigned int), 16, 0);
+		return (put_nbr_u_hex_len(va_arg(arg, unsigned int), 16, 0));
 	else if (specifier == 'X')
-		count += put_nbr_u_hex_len(va_arg(arg, unsigned int), 16, 1);
+		return (put_nbr_u_hex_len(va_arg(arg, unsigned int), 16, 1));
 	else if (specifier == '%')
-		count += write(1, "%%", 1);
+		return (putchar_len('%'));
 	else
-		count += write(1, &specifier, 1);
-	return (count);
+		return (-1);
 }
 
 int	ft_printf(const char *format, ...)

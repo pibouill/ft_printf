@@ -6,14 +6,14 @@
 /*   By: pibouill <pibouill@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 13:52:47 by pibouill          #+#    #+#             */
-/*   Updated: 2023/11/02 16:54:03 by pibouill         ###   ########.fr       */
+/*   Updated: 2023/11/03 14:23:55 by pibouill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# if defined (__APPLE__)
+# ifdef __APPLE__
 #  define PTR_NULL "0x0"
 # else
 #  define PTR_NULL "(nil)"
