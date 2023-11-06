@@ -1,4 +1,4 @@
-#ft_printf
+# ft_printf
 
 This project is an introduction to variadic functions and the macros related to them
 
