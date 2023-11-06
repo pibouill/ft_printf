@@ -9,4 +9,5 @@ This project is an introduction to variadic functions and the macros related to 
 + va_end
 
 Basic implementation of printf
+
 Handles %(c,s,p,u,d,i,x,X,%)
