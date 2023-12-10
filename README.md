@@ -19,4 +19,9 @@ This project is an introduction to variadic functions and the macros related to 
 
 Basic implementation of printf
 
+### External functions allowed:
+-malloc
+-free
+-write
+
 Handles %(c,s,p,u,d,i,x,X,%)
