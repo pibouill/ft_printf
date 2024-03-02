@@ -1,8 +1,8 @@
+*tags*
 a.out
 *.a
 .vscode
 *.swp
-*test*
 bin
 pft
 gch
